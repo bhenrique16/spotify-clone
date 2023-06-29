@@ -18,11 +18,9 @@ export default function Spotify() {
           "Content-Type": "application/json",
         },
       });
-      console.log({ data });
-
       const userInfo = {
         userId: data.id,
-        userName: data.display_name,
+        name: data.display_name,
       };
       dispatch({ type: reducerCases.SET_USER, userInfo });
     };

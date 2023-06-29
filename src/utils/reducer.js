@@ -23,7 +23,7 @@ const reducer = (state, action) => {
     case reducerCases.SET_USER: {
       return {
         ...state,
-        useInfo: action.userInfo,
+        userInfo: action.userInfo,
       };
     }
     default:
