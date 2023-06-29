@@ -4,6 +4,7 @@ export const initialState = {
   token: null,
   playlists: [],
   useInfo: null,
+  selectedPlaylistId: "5plRalDLe4KGrVAUjmiurK",
 };
 
 const reducer = (state, action) => {
