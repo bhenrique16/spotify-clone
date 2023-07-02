@@ -13,7 +13,7 @@ export default function Navbar({ navBackground }) {
         <input type="text" placeholder="Artistas, músicas ou podcasts" />
       </div>
       <div className="avatar">
-        <a href="#">
+        <a href={userInfo?.userUrl}>
           <CgProfile />
           <span>{userInfo?.name}</span>
         </a>

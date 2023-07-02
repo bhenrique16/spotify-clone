@@ -7,18 +7,19 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Body from "./Body";
 import Footer from "./Footer";
+
 export default function Spotify() {
   const [{ token }, dispatch] = useStateProvider();
   const bodyRef = useRef();
   const [navBackground, setNavBackground] = useState(false);
-  const [headerBackground, setHeaderBackground] = useState(false);
+  const [headerbackground, setheaderbackground] = useState(false);
   const bodyScrolled = () => {
     bodyRef.current.scrollTop >= 30
       ? setNavBackground(true)
       : setNavBackground(false);
     bodyRef.current.scrollTop >= 268
-      ? setHeaderBackground(true)
-      : setHeaderBackground(false);
+      ? setheaderbackground(true)
+      : setheaderbackground(false);
   };
 
   useEffect(() => {
@@ -43,8 +44,8 @@ export default function Spotify() {
         <Sidebar />
         <div className="body" ref={bodyRef} onScroll={bodyScrolled}>
           <Navbar navBackground={navBackground} />
-          <div className="spotify__contents">
-            <Body navBackground={navBackground} />
+          <div className="body__contents">
+            <Body headerbackground={headerbackground} />
           </div>
         </div>
       </div>
@@ -74,6 +75,7 @@ const Container = styled.div`
       overflow: auto;
       &::-webkit-scrollbar {
         width: 0.7rem;
+        max-height: 2rem;
         &-thumb {
           background-color: rgba(255, 255, 255, 0.6);
         }

@@ -6,6 +6,7 @@ import { reducerCases } from "./../utils/Constants";
 
 export default function CurrentTrack() {
   const [{ token, currentPlaying }, dispatch] = useStateProvider();
+  console.log("component", currentPlaying);
   useEffect(() => {
     const getCurrentTrack = async () => {
       const response = await axios.get(
@@ -28,7 +29,7 @@ export default function CurrentTrack() {
         };
         dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
       }
-      console.log(response);
+      console.log({ response }, "eaepg");
     };
 
     getCurrentTrack();
@@ -52,4 +53,23 @@ export default function CurrentTrack() {
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  .track {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    &__image {
+    }
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      &__track__name {
+        color: white;
+      }
+      &__track__artists {
+        color: #b3b3b3;
+      }
+    }
+  }
+`;
